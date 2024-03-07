@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8F9A5DB2-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{69CE5AB5-4157-4C20-84C1-5E13E463643A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{65FA23B2-3393-4464-87E5-8B48506A407F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{65FA23B2-3393-4464-87E5-8B48506A407F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Application", "Customers.Application\Customers.Application.csproj", "{DE9CD8D8-18D0-475F-840D-230C55E67A42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Application", "Customers.Application\Customers.Application.csproj", "{DE9CD8D8-18D0-475F-840D-230C55E67A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Domain", "Customers.Domain\Customers.Domain.csproj", "{35D0616E-3024-4CE6-A841-1DF9921D5018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Domain", "Customers.Domain\Customers.Domain.csproj", "{35D0616E-3024-4CE6-A841-1DF9921D5018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Infraestructure", "Customers.Infraestructure\Customers.Infraestructure.csproj", "{28803220-882A-4F2B-9209-E0F45B6076D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Infraestructure", "Customers.Infraestructure\Customers.Infraestructure.csproj", "{28803220-882A-4F2B-9209-E0F45B6076D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.API", "Customers.API\Customers.API.csproj", "{532FB23A-FF2D-4588-9035-B88D77332B43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.API", "Customers.API\Customers.API.csproj", "{532FB23A-FF2D-4588-9035-B88D77332B43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

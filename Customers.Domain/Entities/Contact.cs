@@ -1,6 +1,6 @@
-﻿using Customers.Application.Entities.Base;
+﻿using Customers.Domain.Entities.Base;
 
-namespace Customers.Application.Entities
+namespace Customers.Domain.Entities
 {
     public class Contact : BaseEntity
     {

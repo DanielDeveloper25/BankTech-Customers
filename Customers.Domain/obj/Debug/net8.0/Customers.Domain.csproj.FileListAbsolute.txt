@@ -1,0 +1,12 @@
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\bin\Debug\net8.0\Customers.Domain.deps.json
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\bin\Debug\net8.0\Customers.Domain.dll
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\bin\Debug\net8.0\Customers.Domain.pdb
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.AssemblyInfoInputs.cache
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.AssemblyInfo.cs
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.csproj.CoreCompileInputs.cache
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.sourcelink.json
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.dll
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\refint\Customers.Domain.dll
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\Customers.Domain.pdb
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.Domain\obj\Debug\net8.0\ref\Customers.Domain.dll

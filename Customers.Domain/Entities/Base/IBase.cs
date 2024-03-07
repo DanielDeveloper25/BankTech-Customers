@@ -1,4 +1,4 @@
-﻿namespace Customers.Application.Entities.Base
+﻿namespace Customers.Domain.Entities.Base
 {
     public interface IBase
     {

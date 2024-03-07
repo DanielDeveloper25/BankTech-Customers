@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Customers.Application.Entities.Base;
+﻿using Customers.Domain.Entities.Base;
 
-namespace Customers.Application.Entities
+namespace Customers.Domain.Entities
 {
     public class Address : BaseEntity
     {

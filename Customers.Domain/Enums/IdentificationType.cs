@@ -1,4 +1,4 @@
-﻿namespace Customers.Application.Enums
+﻿namespace Customers.Domain.Enums
 {
     public enum IdentificationType
     {
