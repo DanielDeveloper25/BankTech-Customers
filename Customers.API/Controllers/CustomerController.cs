@@ -38,6 +38,9 @@ namespace Customers.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCustomer(SaveCustomerDTO saveCustomerDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _customerService.Add(saveCustomerDto);
             return NoContent();
         }
@@ -45,6 +48,9 @@ namespace Customers.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCustomer(int id, UpdateCustomerDTO updateCustomerDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _customerService.Update(updateCustomerDTO, id);
             return NoContent();
         }
@@ -54,6 +60,13 @@ namespace Customers.API.Controllers
         {
             await _customerService.Delete(id);
             return NoContent();
+        }
+
+        [HttpGet("paged")]
+        public async Task<IActionResult> GetAllCustomersPaged([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            var customers = await _customerService.GetAllDtoWithPagination(pageNumber, pageSize);
+            return Ok(customers);
         }
     }
 }

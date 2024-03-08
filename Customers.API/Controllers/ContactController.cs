@@ -1,6 +1,5 @@
 ﻿using Customers.Application.Contacts.DTOs;
 using Customers.Application.Contacts.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Customers.API.Controllers
@@ -39,6 +38,9 @@ namespace Customers.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateContact(SaveContactDTO saveContactDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _contactService.Add(saveContactDTO);
             return NoContent();
         }
@@ -46,6 +48,9 @@ namespace Customers.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContact(int id, UpdateContactDTO updateContactDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _contactService.Update(updateContactDTO, id);
             return NoContent();
         }

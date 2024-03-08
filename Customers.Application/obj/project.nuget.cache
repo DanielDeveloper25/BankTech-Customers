@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ewBYqaOqAcy9E+ani8EGc2GuLakdWHmW2AI2CNpjos86Qoratld/MlQ5+O+1zPugQAPJeWg+1OAREATnHBfAYw==",
+  "dgSpecHash": "JJNjCt5sxZjgE43cEyOd4cK+h0SUVOCLrDXcSbVsbSAYQZypnwHJXEIJJpZOGOMkqN5brF+zixUQA7zD3pOVaA==",
   "success": true,
   "projectFilePath": "C:\\Users\\fdani\\OneDrive\\Projects\\BankTech-Customer\\Customers.Application\\Customers.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fdani\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\fdani\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\fdani\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\fdani\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\fdani\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\fdani\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\fdani\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.2\\microsoft.entityframeworkcore.8.0.2.nupkg.sha512",

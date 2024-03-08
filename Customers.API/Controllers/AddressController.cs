@@ -38,6 +38,9 @@ namespace Customers.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAddress(SaveAddressDTO saveAddressDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _addressService.Add(saveAddressDTO);
             return NoContent();
         }
@@ -45,6 +48,9 @@ namespace Customers.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAddress(int id, UpdateAddressDTO updateAddressDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Values);
+
             await _addressService.Update(updateAddressDTO, id);
             return NoContent();
         }

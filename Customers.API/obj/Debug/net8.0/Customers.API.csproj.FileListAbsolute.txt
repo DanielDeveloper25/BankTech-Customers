@@ -14,7 +14,6 @@ C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.AssemblyInfoInputs.cache
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.AssemblyInfo.cs
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.csproj.CoreCompileInputs.cache
-C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.sourcelink.json
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\staticwebassets.build.json
@@ -145,3 +144,5 @@ C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll

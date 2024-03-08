@@ -12,7 +12,6 @@ namespace Customers.Domain.Entities
         public int IdentificationNumber { get; set; }
         public IdentificationType IdentificationType { get; set; }
         public bool IsClient { get; set; }
-        public string Nationality { get; set; }
         public int ContactId { get; set; }
         public Contact? Contact { get; set; }
         public int AddressId { get; set; }

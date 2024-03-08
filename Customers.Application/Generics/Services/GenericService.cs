@@ -5,7 +5,7 @@ using Customers.Domain.Interfaces;
 
 namespace Customers.Application.Generics.Services
 {
-    public class GenericService<SaveDto,UpdateDto, Dto, Entity> : IGenericService<SaveDto,UpdateDto, Dto, Entity>
+    public class GenericService<SaveDto, UpdateDto, Dto, Entity> : IGenericService<SaveDto, UpdateDto, Dto, Entity>
         where SaveDto : class
         where UpdateDto : class
         where Dto : class
@@ -30,11 +30,8 @@ namespace Customers.Application.Generics.Services
         public virtual async Task<SaveDto> Add(SaveDto vm)
         {
             Entity entity = _mapper.Map<Entity>(vm);
-
             entity = await _repository.AddAsync(entity);
-
             SaveDto entityVm = _mapper.Map<SaveDto>(entity);
-
             return entityVm;
         }
 
@@ -46,7 +43,6 @@ namespace Customers.Application.Generics.Services
         public virtual async Task<Dto> GetByIdDto(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
-
             Dto vm = _mapper.Map<Dto>(entity);
             return vm;
         }
@@ -54,7 +50,12 @@ namespace Customers.Application.Generics.Services
         public virtual async Task<List<Dto>> GetAllDto()
         {
             var entityList = await _repository.GetAllAsync();
+            return _mapper.Map<List<Dto>>(entityList);
+        }
 
+        public virtual async Task<List<Dto>> GetAllDtoWithPagination(int pageNumber, int pageSize)
+        {
+            var entityList = await _repository.GetAllWithPaginationAsync(pageNumber, pageSize);
             return _mapper.Map<List<Dto>>(entityList);
         }
     }

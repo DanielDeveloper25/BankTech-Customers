@@ -2,6 +2,7 @@
 using Customers.Application.Addresses.Services;
 using Customers.Application.Contacts.Interfaces;
 using Customers.Application.Contacts.Services;
+using Customers.Application.Customers.DTOs;
 using Customers.Application.Customers.Interfaces;
 using Customers.Application.Customers.Services;
 using Customers.Application.Generics.Interfaces;

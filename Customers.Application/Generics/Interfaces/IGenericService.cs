@@ -15,5 +15,7 @@
         Task<Dto> GetByIdDto(int id);
 
         Task<List<Dto>> GetAllDto();
+
+        Task<List<Dto>> GetAllDtoWithPagination(int pageNumber, int pageSize);
     }
 }

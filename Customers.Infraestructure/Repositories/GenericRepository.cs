@@ -63,5 +63,14 @@ namespace Customers.Infraestructure.Repositories
         {
             return await _dbContext.Set<TEntity>().FindAsync(id);
         }
+
+        public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
+        {
+            return await _dbContext.Set<TEntity>()
+                .Where(x => !x.IsDeleted)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
     }
 }

@@ -235,5 +235,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Customers.API.Controllers.CustomerController",
+    "Method": "GetAllCustomersPaged",
+    "RelativePath": "api/Customer/paged",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

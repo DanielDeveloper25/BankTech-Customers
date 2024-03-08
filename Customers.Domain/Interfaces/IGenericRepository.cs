@@ -10,5 +10,6 @@ namespace Customers.Domain.Interfaces
         Task<List<TEntity>> GetAllAsync();
         Task<List<TEntity>> GetAllWithIncludeAsync(List<string> properties);
         Task<TEntity> GetByIdAsync(int id);
+        Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize);
     }
 }

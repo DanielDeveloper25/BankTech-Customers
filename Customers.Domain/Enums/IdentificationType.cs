@@ -1,8 +1,12 @@
-﻿namespace Customers.Domain.Enums
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Customers.Domain.Enums
 {
     public enum IdentificationType
     {
-        IdentificationCard = 1,
+        [Display(Name = "IDCard")]
+        IDCard = 1,
+        [Display(Name = "Pasaport")]
         Pasaport
     }
 }
