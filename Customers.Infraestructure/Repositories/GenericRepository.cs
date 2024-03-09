@@ -14,63 +14,60 @@ namespace Customers.Infraestructure.Repositories
             _dbContext = dbContext;
         }
 
-        public virtual async Task<TEntity> AddAsync(TEntity entity)
+        public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await _dbContext.Set<TEntity>().AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.Set<TEntity>().AddAsync(entity, cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
-        public virtual async Task UpdateAsync(TEntity entity)
+        public virtual async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public virtual async Task SoftDeleteAsync(int id)
+        public virtual async Task SoftDeleteAsync(int id, CancellationToken cancellationToken = default)
         {
-            var entity = await _dbContext.Set<TEntity>().FindAsync(id);
-
+            var entity = await _dbContext.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
             if (entity != null)
             {
                 entity.IsDeleted = true;
                 entity.DeletedDate = DateTimeOffset.UtcNow;
                 entity.DeletedBy = "Anonymous";
-
+                entity.DeletedToken = new Guid(Guid.NewGuid().ToString());
                 _dbContext.Entry(entity).State = EntityState.Modified;
-                await _dbContext.SaveChangesAsync();
+                await _dbContext.SaveChangesAsync(cancellationToken);
             }
         }
 
-        public virtual async Task<List<TEntity>> GetAllAsync()
+        public virtual async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<TEntity>().Where(x => !x.IsDeleted).ToListAsync();
+            return await _dbContext.Set<TEntity>().Where(x => !x.IsDeleted).ToListAsync(cancellationToken);
         }
 
-        public virtual async Task<List<TEntity>> GetAllWithIncludeAsync(List<string> properties)
+        public virtual async Task<List<TEntity>> GetAllWithIncludeAsync(List<string> properties, CancellationToken cancellationToken = default)
         {
             var query = _dbContext.Set<TEntity>().Where(x => !x.IsDeleted);
-
             foreach (string property in properties)
             {
                 query = query.Include(property);
             }
-
-            return await query.ToListAsync();
+            return await query.ToListAsync(cancellationToken);
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(int id)
+        public virtual async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(id);
+            return await _dbContext.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
         }
 
-        public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize)
+        public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<TEntity>()
                 .Where(x => !x.IsDeleted)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
     }
 }

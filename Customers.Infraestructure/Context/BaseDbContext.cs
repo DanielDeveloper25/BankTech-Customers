@@ -40,6 +40,7 @@ namespace Customers.Infraestructure.Context
                         entry.Entity.IsDeleted = true;
                         entry.Entity.DeletedDate = DateTimeOffset.UtcNow;
                         entry.Entity.DeletedBy = email;
+                        entry.Entity.DeletedToken = new Guid(Guid.NewGuid().ToString());
                         break;
 
                     default:
