@@ -23,11 +23,18 @@ Este microservicio de customers es parte de una aplicación bancaria desarrollada
     dotnet user-secrets set ConnectionStrings:DefaultConnection "Server=Nombre-de-tu-servidor;Database=BankTech-Customers;Trusted_Connection=true;MultipleActiveResultSets=True;TrustServerCertificate=True"
     ```
 
-4. Ejecuta el siguiente comando en la consola de Package Manager para aplicar las migraciones y crear la base de datos:
+4. **Actualizar la Base de Datos:**
 
-    ```bash
-    dotnet ef database update --project .\Customers.Infrastructure\Customers.Infrastructure.csproj
-    ```
+   - Abre la Package Manager Console desde Visual Studio.
+   - Asegúrate de que el proyecto de infraestructura (`Customers.Infrastructure`) sea el proyecto de inicio (puedes seleccionarlo desde la esquina superior derecha del entorno de desarrollo).
+   - Ejecuta el siguiente comando para aplicar las migraciones y crear la base de datos:
+
+     ```bash
+     update-database
+     ```
+
+   Este comando aplicará las migraciones al proyecto de infraestructura actualmente seleccionado en la consola de administración de paquetes.
+
 
 ## Ejecución
 
