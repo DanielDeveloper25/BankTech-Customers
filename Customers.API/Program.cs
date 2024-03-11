@@ -3,7 +3,6 @@ using Customers.Application;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using System.ComponentModel.DataAnnotations;
-using Customers.Domain.Enums;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -18,21 +17,7 @@ builder.Services.AddControllers()
     });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.MapType<IdentificationType>(() => new OpenApiSchema
-    {
-        Type = "string",
-        Enum = Enum.GetValues(typeof(IdentificationType)).Cast<IdentificationType>()
-        .Select(value =>
-        {
-            var fieldInfo = value.GetType().GetField(value.ToString());
-            var attribute = fieldInfo?.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-            return new OpenApiString((attribute?.Name) ?? value.ToString());
-        })
-        .ToList<IOpenApiAny>()
-    });
-});
+builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceInfrastructure(builder.Configuration);
 builder.Services.AddApplicationLayer();
 FluentValidationConfig.AddFluentValidation(builder.Services);

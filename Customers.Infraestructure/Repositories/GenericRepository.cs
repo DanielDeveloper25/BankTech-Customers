@@ -58,7 +58,8 @@ namespace Customers.Infraestructure.Repositories
 
         public virtual async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
+            return await _dbContext.Set<TEntity>()
+                                   .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted, cancellationToken);
         }
 
         public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default)

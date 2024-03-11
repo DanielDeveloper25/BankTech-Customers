@@ -9,6 +9,5 @@ namespace Customers.Domain.Entities
         public string HouseNumber { get; set; }
         public string Email { get; set; }
         public string AlternatePhoneNumber { get; set; }
-        public string PreferredContactMethod { get; set; }
     }
 }

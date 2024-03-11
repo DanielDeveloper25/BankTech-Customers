@@ -12,7 +12,6 @@ namespace Customers.Application.Contacts.Validation
             RuleFor(dto => dto.HouseNumber).NotEmpty().WithMessage("House number is required.");
             RuleFor(dto => dto.Email).NotEmpty().WithMessage("Email is required.").EmailAddress().WithMessage("Invalid email address format.");
             RuleFor(dto => dto.AlternatePhoneNumber).NotEmpty().WithMessage("Alternate phone number is required.");
-            RuleFor(dto => dto.PreferredContactMethod).NotEmpty().WithMessage("Preferred contact method is required.");
         }
     }
 }
