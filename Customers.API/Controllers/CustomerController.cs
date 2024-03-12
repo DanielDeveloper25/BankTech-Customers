@@ -68,5 +68,6 @@ namespace Customers.API.Controllers
             var customers = await _customerService.GetAllDtoWithPagination(pageNumber, pageSize);
             return Ok(customers);
         }
+
     }
 }
