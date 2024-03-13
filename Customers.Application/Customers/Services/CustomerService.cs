@@ -19,7 +19,6 @@ namespace Customers.Application.Customers.Services
 
         public override async Task<SaveCustomerDTO> Add(SaveCustomerDTO vm)
         {
-            // Crear instancia de Contact
             var contact = new Contact
             {
                 PhoneNumber = vm.PhoneNumber,
@@ -28,7 +27,6 @@ namespace Customers.Application.Customers.Services
                 AlternatePhoneNumber = vm.AlternatePhoneNumber
             };
 
-            // Crear instancia de Address
             var address = new Address
             {
                 Street = vm.Street,
@@ -37,19 +35,30 @@ namespace Customers.Application.Customers.Services
                 ZipCode = vm.ZipCode
             };
 
-            // Crear instancia de Customer
             var customer = _mapper.Map<Customer>(vm);
 
-            // Asociar Contact y Address al Customer
             customer.Contact = contact;
             customer.Address = address;
 
-            // Guardar el nuevo Customer en la base de datos
             customer = await _customerRepository.AddAsync(customer);
 
-            // Mapear la entidad Customer al DTO SaveCustomerDTO
             SaveCustomerDTO customerDto = _mapper.Map<SaveCustomerDTO>(customer);
 
+            return customerDto;
+        }
+
+        public override async Task<List<CustomerDTO>> GetAllDto()
+        {
+            var properties = new List<string> { "Contact", "Address" };
+            var entityList = await _customerRepository.GetAllWithIncludeAsync(properties);
+            return _mapper.Map<List<CustomerDTO>>(entityList);
+        }
+
+        public async Task<CustomerDTO> GetCustomerWithRelatedEntitiesAsync(int id)
+        {
+            var properties = new List<string> { "Contact", "Address" };
+            var customer = await _customerRepository.GetByIdWithIncludeAsync(id, properties);
+            var customerDto = _mapper.Map<CustomerDTO>(customer);
             return customerDto;
         }
     }

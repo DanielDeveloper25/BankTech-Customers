@@ -7,10 +7,16 @@ namespace Customers.Application.Customers.Validation
     {
         public SaveCustomerDTOValidator()
         {
-            RuleFor(dto => dto.FirstName).NotEmpty().WithMessage("First name is required.");
-            RuleFor(dto => dto.LastName).NotEmpty().WithMessage("Last name is required.");
-            RuleFor(dto => dto.DateOfBirth).NotEmpty().WithMessage("Date of birth is required.");
-            RuleFor(dto => dto.IdentificationNumber).NotEmpty().WithMessage("Identification number is required.");
+            RuleFor(customer => customer.FirstName).NotEmpty();
+            RuleFor(customer => customer.LastName).NotEmpty();
+            RuleFor(customer => customer.DateOfBirth).NotEmpty();
+            RuleFor(customer => customer.IdentificationNumber).NotEmpty();
+            RuleFor(customer => customer.PhoneNumber).NotEmpty();
+            RuleFor(customer => customer.Email).NotEmpty().EmailAddress();
+            RuleFor(customer => customer.Street).NotEmpty();
+            RuleFor(customer => customer.City).NotEmpty();
+            RuleFor(customer => customer.State).NotEmpty();
+            RuleFor(customer => customer.ZipCode).NotEmpty();
         }
     }
 }

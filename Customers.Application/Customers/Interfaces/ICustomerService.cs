@@ -6,5 +6,6 @@ namespace Customers.Application.Customers.Interfaces
 {
     public interface ICustomerService : IGenericService<SaveCustomerDTO, UpdateCustomerDTO, CustomerDTO, Customer>
     {
+        Task<CustomerDTO> GetCustomerWithRelatedEntitiesAsync(int id);
     }
 }

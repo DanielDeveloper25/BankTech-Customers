@@ -11,5 +11,6 @@ namespace Customers.Domain.Interfaces
         Task<List<TEntity>> GetAllWithIncludeAsync(List<string> properties, CancellationToken cancellationToken = default);
         Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default);
         Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default);
+        Task<TEntity> GetByIdWithIncludeAsync(int id, List<string> properties, CancellationToken cancellationToken = default);
     }
 }

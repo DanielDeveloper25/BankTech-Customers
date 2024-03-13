@@ -70,5 +70,18 @@ namespace Customers.Infraestructure.Repositories
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
         }
+
+        public virtual async Task<TEntity> GetByIdWithIncludeAsync(int id, List<string> properties, CancellationToken cancellationToken = default)
+        {
+            var query = _dbContext.Set<TEntity>()
+                .Where(x => x.Id == id && !x.IsDeleted);
+
+            foreach (string property in properties)
+            {
+                query = query.Include(property);
+            }
+
+            return await query.FirstOrDefaultAsync(cancellationToken);
+        }
     }
 }

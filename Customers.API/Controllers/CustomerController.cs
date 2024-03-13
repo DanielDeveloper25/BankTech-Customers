@@ -25,7 +25,7 @@ namespace Customers.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCustomerById(int id)
         {
-            var customer = await _customerService.GetByIdDto(id);
+            var customer = await _customerService.GetCustomerWithRelatedEntitiesAsync(id);
 
             if (customer == null)
             {
@@ -36,13 +36,13 @@ namespace Customers.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCustomer(SaveCustomerDTO saveCustomerDto)
+        public async Task<ActionResult<SaveCustomerDTO>> CreateCustomer(SaveCustomerDTO saveCustomerDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
 
-            await _customerService.Add(saveCustomerDto);
-            return NoContent();
+            var createdCustomer = await _customerService.Add(saveCustomerDto);
+            return CreatedAtAction(nameof(GetCustomerById), new { id = createdCustomer.Id }, createdCustomer);
         }
 
         [HttpPut("{id}")]

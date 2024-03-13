@@ -58,5 +58,7 @@ namespace Customers.Application.Generics.Services
             var entityList = await _repository.GetAllWithPaginationAsync(pageNumber, pageSize);
             return _mapper.Map<List<Dto>>(entityList);
         }
+
+
     }
 }
