@@ -54,6 +54,14 @@ namespace Customers.Application.Customers.Services
             return _mapper.Map<List<CustomerDTO>>(entityList);
         }
 
+        public async Task<CustomerDTO> GetByEmailWithIncludeAsync(string email)
+        {
+            var properties = new List<string> { "Contact", "Address" };
+            var customer = await _customerRepository.GetByEmailWithIncludeAsync(email, properties);
+            var customerDto = _mapper.Map<CustomerDTO>(customer);
+            return customerDto;
+        }
+
         public async Task<CustomerDTO> GetCustomerWithRelatedEntitiesAsync(int id)
         {
             var properties = new List<string> { "Contact", "Address" };

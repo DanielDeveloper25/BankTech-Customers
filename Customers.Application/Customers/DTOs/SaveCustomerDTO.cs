@@ -7,7 +7,6 @@
         public required string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public required string IdentificationNumber { get; set; }
-        public bool IsClient { get; set; }
 
         // Contact properties
         public required string PhoneNumber { get; set; }

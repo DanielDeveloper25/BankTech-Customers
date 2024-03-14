@@ -35,6 +35,19 @@ namespace Customers.API.Controllers
             return Ok(customer);
         }
 
+        [HttpGet("Email")]
+        public async Task<IActionResult> GetCustomerByEmail(string email)
+        {
+            var customer = await _customerService.GetByEmailWithIncludeAsync(email);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(customer);
+        }
+
         [HttpPost]
         public async Task<ActionResult<SaveCustomerDTO>> CreateCustomer(SaveCustomerDTO saveCustomerDto)
         {

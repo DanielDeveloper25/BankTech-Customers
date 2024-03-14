@@ -20,6 +20,10 @@ namespace Customers.Infraestructure.Context
             {
                 modelBuilder.ApplyConfigurationsFromAssembly(assembly);
             }
+
+            modelBuilder.Entity<Contact>()
+                .HasIndex(c => c.Email)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

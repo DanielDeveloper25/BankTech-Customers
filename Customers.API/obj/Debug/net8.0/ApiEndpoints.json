@@ -248,6 +248,22 @@
   },
   {
     "ContainingType": "Customers.API.Controllers.CustomerController",
+    "Method": "GetCustomerByEmail",
+    "RelativePath": "api/Customer/Email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Customers.API.Controllers.CustomerController",
     "Method": "GetAllCustomersPaged",
     "RelativePath": "api/Customer/paged",
     "HttpMethod": "GET",
