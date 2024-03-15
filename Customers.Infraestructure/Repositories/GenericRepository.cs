@@ -62,14 +62,24 @@ namespace Customers.Infraestructure.Repositories
                                    .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted, cancellationToken);
         }
 
-        public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
+        public virtual async Task<List<TEntity>> GetAllWithPaginationAsync(int pageNumber, int pageSize, List<string>? includeProperties = null, CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<TEntity>()
-                .Where(x => !x.IsDeleted)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync(cancellationToken);
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>()
+                                                  .Where(x => !x.IsDeleted)
+                                                  .Skip((pageNumber - 1) * pageSize)
+                                                  .Take(pageSize);
+
+            if (includeProperties != null)
+            {
+                foreach (string property in includeProperties)
+                {
+                    query = query.Include(property);
+                }
+            }
+
+            return await query.ToListAsync(cancellationToken);
         }
+
 
         public virtual async Task<TEntity> GetByIdWithIncludeAsync(int id, List<string> properties, CancellationToken cancellationToken = default)
         {

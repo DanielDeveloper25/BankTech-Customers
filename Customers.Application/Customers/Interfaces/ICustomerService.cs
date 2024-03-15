@@ -8,5 +8,6 @@ namespace Customers.Application.Customers.Interfaces
     {
         Task<CustomerDTO> GetCustomerWithRelatedEntitiesAsync(int id);
         Task<CustomerDTO> GetByEmailWithIncludeAsync(string email);
+        Task<ClientDTO> GetClient(int id);
     }
 }

@@ -15,10 +15,10 @@ namespace Customers.API.Controllers
             _customerService = customerService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllCustomers()
+        [HttpGet("paged")]
+        public async Task<IActionResult> GetAllCustomersPaged([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var customers = await _customerService.GetAllDto();
+            var customers = await _customerService.GetAllDtoWithPagination(pageNumber, pageSize);
             return Ok(customers);
         }
 
@@ -26,6 +26,19 @@ namespace Customers.API.Controllers
         public async Task<IActionResult> GetCustomerById(int id)
         {
             var customer = await _customerService.GetCustomerWithRelatedEntitiesAsync(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(customer);
+        }
+
+        [HttpGet("client {id}")]
+        public async Task<IActionResult> GetClientById(int id)
+        {
+            var customer = await _customerService.GetClient(id);
 
             if (customer == null)
             {
@@ -74,13 +87,5 @@ namespace Customers.API.Controllers
             await _customerService.Delete(id);
             return NoContent();
         }
-
-        [HttpGet("paged")]
-        public async Task<IActionResult> GetAllCustomersPaged([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
-        {
-            var customers = await _customerService.GetAllDtoWithPagination(pageNumber, pageSize);
-            return Ok(customers);
-        }
-
     }
 }

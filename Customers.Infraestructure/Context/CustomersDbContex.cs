@@ -24,6 +24,10 @@ namespace Customers.Infraestructure.Context
             modelBuilder.Entity<Contact>()
                 .HasIndex(c => c.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<Customer>()
+                .HasIndex(c => c.IdentificationNumber)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
