@@ -7,7 +7,7 @@ using Customers.Domain.Interfaces;
 
 namespace Customers.Application.Contacts.Services
 {
-    public class ContactService : GenericService<SaveContactDTO, UpdateContactDTO, ContactDTO, Contact>, IContactService
+    public class ContactService : GenericService<SaveContactDTO, ContactDTO, Contact>, IContactService
     {
         private readonly IContactRepository _contactRepository;
         private readonly IMapper _mapper;

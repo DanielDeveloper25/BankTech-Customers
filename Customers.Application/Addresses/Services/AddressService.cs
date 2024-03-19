@@ -7,7 +7,7 @@ using Customers.Domain.Interfaces;
 
 namespace Customers.Application.Addresses.Services
 {
-    public class AddressService : GenericService<SaveAddressDTO, UpdateAddressDTO, AddressDTO, Address>, IAddressService
+    public class AddressService : GenericService<SaveAddressDTO, AddressDTO, Address>, IAddressService
     {
         public readonly IAddressRepository _addressRepository;
         public readonly IMapper _mapper;

@@ -46,12 +46,12 @@ namespace Customers.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAddress(int id, UpdateAddressDTO updateAddressDTO)
+        public async Task<IActionResult> UpdateAddress(int id, SaveAddressDTO saveAddressDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
 
-            await _addressService.Update(updateAddressDTO, id);
+            await _addressService.Update(saveAddressDTO, id);
             return NoContent();
         }
 

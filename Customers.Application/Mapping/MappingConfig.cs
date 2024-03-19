@@ -35,16 +35,13 @@ namespace Customers.Application.Mapping
                 .ForMember(dest => dest.State, opt => opt.MapFrom(src => src.Address.State))
                 .ForMember(dest => dest.ZipCode, opt => opt.MapFrom(src => src.Address.ZipCode))
                 .ReverseMap();
-            CreateMap<Customer, UpdateCustomerDTO>().ReverseMap();
             CreateMap<Customer, ClientDTO>().ReverseMap();
 
             CreateMap<Address, AddressDTO>().ReverseMap();
             CreateMap<Address, SaveAddressDTO>().ReverseMap();
-            CreateMap<Address, UpdateAddressDTO>().ReverseMap();
 
             CreateMap<Contact, ContactDTO>().ReverseMap();
             CreateMap<Contact, SaveContactDTO>().ReverseMap();
-            CreateMap<Contact, UpdateContactDTO>().ReverseMap();
         }
     }
 }

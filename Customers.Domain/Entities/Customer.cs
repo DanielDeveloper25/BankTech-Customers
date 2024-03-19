@@ -9,7 +9,7 @@ namespace Customers.Domain.Entities
         public required string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public required string IdentificationNumber { get; set; }
-        public bool IsClient { get; set; } = true;
+        public bool ActiveAccount { get; set; } = true;
         public int ContactId { get; set; }
         public Contact Contact { get; set; }
         public int AddressId { get; set; }

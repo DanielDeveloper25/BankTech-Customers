@@ -4,7 +4,7 @@ using Customers.Domain.Entities;
 
 namespace Customers.Application.Addresses.Interfaces
 {
-    public interface IAddressService : IGenericService<SaveAddressDTO, UpdateAddressDTO, AddressDTO, Address>
+    public interface IAddressService : IGenericService<SaveAddressDTO, AddressDTO, Address>
     {
     }
 }

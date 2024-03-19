@@ -1,12 +1,11 @@
 ﻿namespace Customers.Application.Generics.Interfaces
 {
-    public interface IGenericService<SaveDto,UpdateDto, Dto, Entity>
+    public interface IGenericService<SaveDto, Dto, Entity>
         where SaveDto : class
-        where UpdateDto : class
         where Dto : class
         where Entity : class
     {
-        Task Update(UpdateDto vm, int id);
+        Task Update(SaveDto vm, int id);
 
         Task<SaveDto> Add(SaveDto vm);
 

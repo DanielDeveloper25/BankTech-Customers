@@ -5,9 +5,8 @@ using Customers.Domain.Interfaces;
 
 namespace Customers.Application.Generics.Services
 {
-    public class GenericService<SaveDto, UpdateDto, Dto, Entity> : IGenericService<SaveDto, UpdateDto, Dto, Entity>
+    public class GenericService<SaveDto, Dto, Entity> : IGenericService<SaveDto, Dto, Entity>
         where SaveDto : class
-        where UpdateDto : class
         where Dto : class
         where Entity : class, IBase
     {
@@ -20,7 +19,7 @@ namespace Customers.Application.Generics.Services
             _mapper = mapper;
         }
 
-        public virtual async Task Update(UpdateDto vm, int id)
+        public virtual async Task Update(SaveDto vm, int id)
         {
             Entity entity = _mapper.Map<Entity>(vm);
             entity.Id = id;

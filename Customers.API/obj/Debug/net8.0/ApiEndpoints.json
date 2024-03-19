@@ -55,8 +55,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateAddressDTO",
-        "Type": "Customers.Application.Addresses.DTOs.UpdateAddressDTO",
+        "Name": "saveAddressDTO",
+        "Type": "Customers.Application.Addresses.DTOs.SaveAddressDTO",
         "IsRequired": true
       }
     ],
@@ -135,7 +135,7 @@
       },
       {
         "Name": "updateContactDTO",
-        "Type": "Customers.Application.Contacts.DTOs.UpdateContactDTO",
+        "Type": "Customers.Application.Contacts.DTOs.SaveContactDTO",
         "IsRequired": true
       }
     ],
@@ -201,9 +201,9 @@
   },
   {
     "ContainingType": "Customers.API.Controllers.CustomerController",
-    "Method": "UpdateCustomer",
+    "Method": "PatchCustomer",
     "RelativePath": "api/Customer/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -213,8 +213,8 @@
         "IsRequired": true
       },
       {
-        "Name": "updateCustomerDTO",
-        "Type": "Customers.Application.Customers.DTOs.UpdateCustomerDTO",
+        "Name": "patchCustomerDTO",
+        "Type": "Customers.Application.Customers.DTOs.PatchCustomerDTO",
         "IsRequired": true
       }
     ],

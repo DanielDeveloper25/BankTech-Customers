@@ -71,13 +71,21 @@ namespace Customers.API.Controllers
             return CreatedAtAction(nameof(GetCustomerById), new { id = createdCustomer.Id }, createdCustomer);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCustomer(int id, UpdateCustomerDTO updateCustomerDTO)
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchCustomer(int id, PatchCustomerDTO patchCustomerDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);
 
-            await _customerService.Update(updateCustomerDTO, id);
+            try
+            {
+                await _customerService.PatchCustomer(id, patchCustomerDTO);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+
             return NoContent();
         }
 

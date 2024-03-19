@@ -4,7 +4,7 @@ using Customers.Domain.Entities;
 
 namespace Customers.Application.Contacts.Interfaces
 {
-    public interface IContactService : IGenericService<SaveContactDTO, UpdateContactDTO, ContactDTO, Contact>
+    public interface IContactService : IGenericService<SaveContactDTO, ContactDTO, Contact>
     {
     }
 }

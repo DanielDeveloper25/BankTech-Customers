@@ -19,7 +19,7 @@ namespace Customers.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             #region Services
-            services.AddTransient(typeof(IGenericService<,,,>), typeof(GenericService<,,,>));
+            services.AddTransient(typeof(IGenericService<,,>), typeof(GenericService<,,>));
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IContactService, ContactService>();

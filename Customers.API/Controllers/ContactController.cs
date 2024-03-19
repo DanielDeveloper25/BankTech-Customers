@@ -46,7 +46,7 @@ namespace Customers.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateContact(int id, UpdateContactDTO updateContactDTO)
+        public async Task<IActionResult> UpdateContact(int id, SaveContactDTO updateContactDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Values);

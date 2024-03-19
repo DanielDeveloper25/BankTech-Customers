@@ -17,13 +17,11 @@ namespace Customers.Application
             services.AddFluentValidationAutoValidation();
 
             services.AddScoped<IValidator<SaveCustomerDTO>, SaveCustomerDTOValidator>();
-            services.AddScoped<IValidator<UpdateCustomerDTO>, UpdateCustomerDTOValidator>();
+            services.AddScoped<IValidator<PatchCustomerDTO>, PatchCustomerDTOValidator>();
 
             services.AddScoped<IValidator<SaveAddressDTO>, SaveAddressDTOValidator>();
-            services.AddScoped<IValidator<UpdateAddressDTO>, UpdateAddressDtoValidator>();
 
             services.AddScoped<IValidator<SaveContactDTO>, SaveContactDtoValidator>();
-            services.AddScoped<IValidator<UpdateContactDTO>, UpdateContactDTOValidator>();
         }
     }
 }

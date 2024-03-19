@@ -145,4 +145,3 @@ C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
-C:\Users\fdani\OneDrive\Projects\BankTech-Customer\Customers.API\obj\Debug\net8.0\Customers.API.MvcApplicationPartsAssemblyInfo.cs
