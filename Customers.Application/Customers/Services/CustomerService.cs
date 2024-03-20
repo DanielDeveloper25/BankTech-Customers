@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Customers.Application.Addresses.DTOs;
+using Customers.Application.Contacts.DTOs;
 using Customers.Application.Customers.DTOs;
 using Customers.Application.Customers.Helpers;
 using Customers.Application.Customers.Interfaces;
@@ -24,30 +26,18 @@ namespace Customers.Application.Customers.Services
 
         public override async Task<SaveCustomerDTO> Add(SaveCustomerDTO vm)
         {
-            var contact = new Contact
-            {
-                PhoneNumber = vm.PhoneNumber,
-                HouseNumber = vm.HouseNumber,
-                Email = vm.Email,
-                AlternatePhoneNumber = vm.AlternatePhoneNumber
-            };
-
-            var address = new Address
-            {
-                Street = vm.Street,
-                City = vm.City,
-                State = vm.State,
-                ZipCode = vm.ZipCode
-            };
+            var contact = _mapper.Map<Contact>(vm.Contact);
+            var address = _mapper.Map<Address>(vm.Address);
 
             var customer = _mapper.Map<Customer>(vm);
-
             customer.Contact = contact;
             customer.Address = address;
 
             customer = await _customerRepository.AddAsync(customer);
 
             SaveCustomerDTO customerDto = _mapper.Map<SaveCustomerDTO>(customer);
+            customerDto.Contact = _mapper.Map<SaveContactDTO>(customer.Contact);
+            customerDto.Address = _mapper.Map<SaveAddressDTO>(customer.Address);
 
             return customerDto;
         }
@@ -97,16 +87,22 @@ namespace Customers.Application.Customers.Services
             if (patchCustomerDto.ActiveAccount != null) customer.ActiveAccount = patchCustomerDto.ActiveAccount.Value;
 
             // Update Contact properties
-            if (patchCustomerDto.PhoneNumber != null) customer.Contact.PhoneNumber = patchCustomerDto.PhoneNumber;
-            if (patchCustomerDto.HouseNumber != null) customer.Contact.HouseNumber = patchCustomerDto.HouseNumber;
-            if (patchCustomerDto.Email != null) customer.Contact.Email = patchCustomerDto.Email;
-            if (patchCustomerDto.AlternatePhoneNumber != null) customer.Contact.AlternatePhoneNumber = patchCustomerDto.AlternatePhoneNumber;
+            if (patchCustomerDto.Contact != null)
+            {
+                if (patchCustomerDto.Contact.PhoneNumber != null) customer.Contact.PhoneNumber = patchCustomerDto.Contact.PhoneNumber;
+                if (patchCustomerDto.Contact.HouseNumber != null) customer.Contact.HouseNumber = patchCustomerDto.Contact.HouseNumber;
+                if (patchCustomerDto.Contact.Email != null) customer.Contact.Email = patchCustomerDto.Contact.Email;
+                if (patchCustomerDto.Contact.AlternatePhoneNumber != null) customer.Contact.AlternatePhoneNumber = patchCustomerDto.Contact.AlternatePhoneNumber;
+            }
 
             // Update Address properties
-            if (patchCustomerDto.Street != null) customer.Address.Street = patchCustomerDto.Street;
-            if (patchCustomerDto.City != null) customer.Address.City = patchCustomerDto.City;
-            if (patchCustomerDto.State != null) customer.Address.State = patchCustomerDto.State;
-            if (patchCustomerDto.ZipCode != null) customer.Address.ZipCode = patchCustomerDto.ZipCode;
+            if (patchCustomerDto.Address != null)
+            {
+                if (patchCustomerDto.Address.Street != null) customer.Address.Street = patchCustomerDto.Address.Street;
+                if (patchCustomerDto.Address.City != null) customer.Address.City = patchCustomerDto.Address.City;
+                if (patchCustomerDto.Address.State != null) customer.Address.State = patchCustomerDto.Address.State;
+                if (patchCustomerDto.Address.ZipCode != null) customer.Address.ZipCode = patchCustomerDto.Address.ZipCode;
+            }
 
             await _customerRepository.UpdateAsync(customer);
         }

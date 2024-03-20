@@ -4,20 +4,20 @@ using FluentValidation;
 
 namespace Customers.Application.Contacts.Validation
 {
-    public class SaveContactDTOValidator : AbstractValidator<SaveContactDTO>
+    public class PatchContactDTOValidator : AbstractValidator<ContactDTO>
     {
-        public SaveContactDTOValidator()
+        public PatchContactDTOValidator()
         {
             RuleFor(contact => contact.PhoneNumber)
-                .NotEmpty()
+                .NotEmpty().When(contact => contact.PhoneNumber != null)
                 .WithMessage("El número de teléfono no puede estar vacío.");
 
             RuleFor(contact => contact.HouseNumber)
-                .NotEmpty()
+                .NotEmpty().When(contact => contact.HouseNumber != null)
                 .WithMessage("El número de casa no puede estar vacío.");
 
             RuleFor(contact => contact.Email)
-                .NotEmpty()
+                .NotEmpty().When(contact => contact.Email != null)
                 .WithMessage("El correo electrónico no puede estar vacío.")
                 .EmailAddress()
                 .WithMessage("El correo electrónico tiene un formato inválido.")

@@ -1,4 +1,7 @@
-﻿namespace Customers.Application.Customers.DTOs
+﻿using Customers.Application.Addresses.DTOs;
+using Customers.Application.Contacts.DTOs;
+
+namespace Customers.Application.Customers.DTOs
 {
     public class CustomerDTO
     {
@@ -9,16 +12,7 @@
         public required string IdentificationNumber { get; set; }
         public bool ActiveAccount { get; set; }
 
-        // Propiedades de Contact
-        public required string PhoneNumber { get; set; }
-        public required string HouseNumber { get; set; }
-        public required string Email { get; set; }
-        public string? AlternatePhoneNumber { get; set; }
-
-        // Propiedades de Address
-        public required string Street { get; set; }
-        public required string City { get; set; }
-        public required string State { get; set; }
-        public required string ZipCode { get; set; }
+        public required ContactDTO Contact { get; set; }
+        public required AddressDTO Address { get; set; }
     }
 }

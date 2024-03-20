@@ -21,7 +21,7 @@ namespace Customers.Application
 
             services.AddScoped<IValidator<SaveAddressDTO>, SaveAddressDTOValidator>();
 
-            services.AddScoped<IValidator<SaveContactDTO>, SaveContactDtoValidator>();
+            services.AddScoped<IValidator<SaveContactDTO>, SaveContactDTOValidator>();
         }
     }
 }
