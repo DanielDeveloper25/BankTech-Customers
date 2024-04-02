@@ -22,12 +22,10 @@ namespace Customers.Infraestructure.Context
             }
 
             modelBuilder.Entity<Contact>()
-                .HasIndex(c => c.Email)
-                .IsUnique();
+                .HasAlternateKey(c => new { c.Email, c.DeletedToken });
 
             modelBuilder.Entity<Customer>()
-                .HasIndex(c => c.IdentificationNumber)
-                .IsUnique();
+                .HasAlternateKey(c => new { c.IdentificationNumber, c.DeletedToken });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

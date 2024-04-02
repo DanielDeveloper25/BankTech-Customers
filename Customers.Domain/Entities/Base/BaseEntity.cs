@@ -2,6 +2,10 @@
 {
     public abstract class BaseEntity : IBase
     {
+        public BaseEntity()
+        {
+            DeletedToken = Guid.NewGuid();
+        }
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
         public DateTimeOffset CreatedDate { get; set; }

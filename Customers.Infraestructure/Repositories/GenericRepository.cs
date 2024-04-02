@@ -35,7 +35,6 @@ namespace Customers.Infraestructure.Repositories
                 entity.IsDeleted = true;
                 entity.DeletedDate = DateTimeOffset.UtcNow;
                 entity.DeletedBy = "Anonymous";
-                entity.DeletedToken = new Guid(Guid.NewGuid().ToString());
                 _dbContext.Entry(entity).State = EntityState.Modified;
                 await _dbContext.SaveChangesAsync(cancellationToken);
             }
